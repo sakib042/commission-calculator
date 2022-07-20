@@ -1,0 +1,30 @@
+{
+  "name": "commission-calculator",
+  "version": "1.0.0",
+  "description": "sample testing app for commission calculation",
+  "main": "app.js",
+  "scripts": {
+    "calculate": "node app.js input.json",
+    "start": "nodemon app.js input.json",
+    "test": "jest",
+    "watchtest": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sakib042/commission-calculator.git"
+  },
+  "keywords": [
+    "javascript",
+    "nodejs"
+  ],
+  "author": "sakib042",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sakib042/commission-calculator/issues"
+  },
+  "homepage": "https://github.com/sakib042/commission-calculator#readme",
+  "devDependencies": {
+    "jest": "^28.1.3",
+    "nodemon": "^2.0.19"
+  }
+}
