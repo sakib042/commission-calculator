@@ -157,77 +157,77 @@ test('get cash in commission amount', () => {
 
 // Check Cash out commission amount
 
-test('get cash in commission amount', () => {
+test('get cash out commission amount', () => {
     const cashOutCommission = calculateCashoutCommission('natural', 300, 900);
     expect(cashOutCommission).toBe(0.6);
 });
 
-test('get cash in commission amount', () => {
+test('get cash out commission amount', () => {
     const cashOutCommission = calculateCashoutCommission('natural', 30000, 0);
     expect(cashOutCommission).toBe(87);
 });
 
-test('get cash in commission amount', () => {
+test('get cash out commission amount', () => {
     const cashOutCommission = calculateCashoutCommission('natural', 100, 31000);
     expect(cashOutCommission).toBe(0.3);
 });
 
-test('get cash in commission amount', () => {
+test('get cash out commission amount', () => {
     const cashOutCommission = calculateCashoutCommission('natural', 1000, 1100);
     expect(cashOutCommission).toBe(3);
 });
 
-test('get cash in commission amount', () => {
+test('get cash out commission amount', () => {
     const cashOutCommission = calculateCashoutCommission('natural', 'fail', 'fail again');
     expect(cashOutCommission).toBe(0);
 });
 
-test('get cash in commission amount', () => {
+test('get cash out commission amount', () => {
     const cashOutCommission = calculateCashoutCommission('natural', 'fail', '0');
     expect(cashOutCommission).toBe(0);
 });
 
-test('get cash in commission amount', () => {
+test('get cash out commission amount', () => {
     const cashOutCommission = calculateCashoutCommission('natural', 0, '0');
     expect(cashOutCommission).toBe(0);
 });
 
-test('get cash in commission amount', () => {
+test('get cash out commission amount', () => {
     const cashOutCommission = calculateCashoutCommission('juridical', 300, 1100);
     expect(cashOutCommission).toBe(0.90);
 });
 
-test('get cash in commission amount', () => {
+test('get cash out commission amount', () => {
     const cashOutCommission = calculateCashoutCommission('juridical', 400, 0);
     expect(cashOutCommission).toBe(1.20);
 });
 
-test('get cash in commission amount', () => {
+test('get cash out commission amount', () => {
     const cashOutCommission = calculateCashoutCommission('something', 400, 0);
     expect(cashOutCommission).toBe(0);
 });
 
-test('get cash in commission amount', () => {
+test('get cash out commission amount', () => {
     const cashOutCommission = calculateCashoutCommission(null);
     expect(cashOutCommission).toBe(0);
 });
 
-test('get cash in commission amount', () => {
+test('get cash out commission amount', () => {
     const cashOutCommission = calculateCashoutCommission(null, 0, 0);
     expect(cashOutCommission).toBe(0);
 });
 
-test('get cash in commission amount', () => {
+test('get cash out commission amount', () => {
     const cashOutCommission = calculateCashoutCommission(0, 0, 0);
     expect(cashOutCommission).toBe(0);
 });
 
-test('get cash in commission amount', () => {
+test('get cash out commission amount', () => {
     const cashOutCommission = calculateCashoutCommission(0);
     expect(cashOutCommission).toBe(0);
 });
 
-test('get cash in commission amount', () => {
+test('get cash out commission amount', () => {
     const cashOutCommission = calculateCashoutCommission();
     expect(cashOutCommission).toBe(0);
 });
