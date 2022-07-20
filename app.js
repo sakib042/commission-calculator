@@ -1,6 +1,6 @@
 // import from utils
 
-const { jsonReader, getWeeklyCashoutTotal, calculateCashinCommission, calculateCashoutCommission } = require("./utils.js");
+import { calculateCashinCommission, calculateCashoutCommission, getWeeklyCashoutTotal, jsonReader } from "./utils.js";
 
 const inputFileLink = process.argv.slice(2).toString();
 const transactionData = jsonReader(inputFileLink);

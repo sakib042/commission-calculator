@@ -1,5 +1,8 @@
 # Commission Calculator
 
+### Install Dependencies
+```npm install```
+
 ### Calculate Commission Command
 ```npm run calculate```
 

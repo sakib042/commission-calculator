@@ -1,6 +1,6 @@
 // Import/Require Packages
 
-const fs = require("fs");
+import fs from "fs";
 
 // Cash In Commission Percentage and Condition
 
@@ -34,7 +34,7 @@ const cashOutCommissionForLegalPerson = {
 
 // Json Data Reader from file Stream
 
-function jsonReader(filePath) {
+export const jsonReader = (filePath) => {
     try {
         const jsonString = fs.readFileSync(filePath);
         return JSON.parse(jsonString);
@@ -46,15 +46,15 @@ function jsonReader(filePath) {
 
 // Calculating the first day of the week according to the given date (starting from Monday to Sunday)
 
-function getFirstDayOfTheWeek(date, days) {
+const getFirstDayOfTheWeek = (date, days) => {
     const gdate = new Date(date);
     return `${gdate.getFullYear()}-${gdate.getMonth() + 1 < 10 ? '0' + (gdate.getMonth() + 1) : gdate.getMonth() + 1}-${gdate.getDate() - days < 10 ? '0' + (gdate.getDate() - days) : gdate.getDate() - days}`;
 }
 
 // Get weekly cash out total amount for specific user
 
-function getWeeklyCashoutTotal(transactionDataList, date, user_id, index, previousDays) {
-    totalCashAmount = 0;
+export const getWeeklyCashoutTotal = (transactionDataList, date, user_id, index, previousDays) => {
+    let totalCashAmount = 0;
     if (index > 0) {
         for (let i = 0; i < index; i++) {
             if (transactionDataList[i].date >= getFirstDayOfTheWeek(date, previousDays) && transactionDataList[i].date <= date && transactionDataList[i].user_id === user_id && transactionDataList[i].type === 'cash_out') {
@@ -67,7 +67,7 @@ function getWeeklyCashoutTotal(transactionDataList, date, user_id, index, previo
 
 // Calculating Cashin Commission by checking user type according to given condition
 
-function calculateCashinCommission(depositAmount) {
+export const calculateCashinCommission = (depositAmount) => {
     if (depositAmount != '' && depositAmount != null && !isNaN(depositAmount)) {
         let cashInCommissionAmount = 0;
         const tempCommissionAmount = depositAmount * (cashInCommission.percents / 100);
@@ -80,7 +80,7 @@ function calculateCashinCommission(depositAmount) {
 
 // Calculating Cashout Commission by checking user type and users last transactions within the week according to given condition
 
-function calculateCashoutCommission(userType, creditAmount, transactionWithinCurrentWeek) {
+export const calculateCashoutCommission = (userType, creditAmount, transactionWithinCurrentWeek) => {
     const week_limit_amount = cashOutCommissionForNaturalPerson.week_limit.amount;
     const min_amount = cashOutCommissionForLegalPerson.min.amount;
     let cashOutCommissionAmount = 0;
@@ -112,5 +112,5 @@ function calculateCashoutCommission(userType, creditAmount, transactionWithinCur
 
 // Export functions to access from other file
 
-module.exports = { jsonReader, getWeeklyCashoutTotal, calculateCashinCommission, calculateCashoutCommission };
+// module.exports = { jsonReader, getWeeklyCashoutTotal, calculateCashinCommission, calculateCashoutCommission };
 
